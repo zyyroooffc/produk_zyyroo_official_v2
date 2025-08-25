@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZYYROO OFFICIAL</title>
+<style>
+/* === BODY === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #000 40%, #8B0000 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === PETIR ZIG-ZAG === */
+.lightning {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.bolt {
+  position: absolute;
+  width: 3px;
+  height: 120%;
+  background: linear-gradient(to bottom, rgba(0,191,255,0.9), rgba(255,255,255,0.5));
+  clip-path: polygon(0 0, 100% 5%, 0 15%, 100% 25%, 0 35%, 100% 45%, 0 55%, 100% 65%, 0 75%, 100% 85%, 0 100%);
+  opacity: 0.8;
+}
+.bolt.left { left: 15%; animation: boltAnim 4s linear infinite; }
+.bolt.center { left: 50%; animation: boltAnim 3s linear infinite; }
+.bolt.right { left: 85%; animation: boltAnim 5s linear infinite; }
+
+@keyframes boltAnim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* === MARQUEE ATAS === */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  border-bottom: 2px solid #fff;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.marquee span {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* === PRODUK === */
+.product-section {
+  width: 90%;
+  max-width: 750px;
+  background-color: rgba(255,255,255,0.06);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Gambar Produk */
+.product-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  margin-bottom: 15px;
+}
+
+/* Judul Produk */
+.product-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Deskripsi */
+.product-desc {
+  font-size: 15px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+.scrollable-desc { max-height: 150px; overflow-y: auto; padding-right: 10px; display: none; }
+
+/* Harga */
+.product-price { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+
+/* Tombol Buy */
+.btn-buy {
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #8B0000, #000);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: vibrate 1.5s infinite ease-in-out;
+}
+.btn-buy:hover { box-shadow: 0 0 15px #8B0000; }
+
+/* Efek Getar */
+@keyframes vibrate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+}
+
+/* === SECTION PAYMENT & TESTI === */
+.section {
+  width: 90%;
+  max-width: 750px;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255,255,255,0.06);
+  z-index: 1;
+  text-align: center;
+}
+.section-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+.payment-box {
+  width: 100%; padding: 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px; justify-content: center;
+}
+.payment-box img { width: 40px; height: 40px; border-radius: 8px; }
+.payment-text { font-size: 18px; font-weight: bold; }
+.dana { background-color: #0d1b2a; color: #fff; }
+.qris { background-color: #1b263b; color: #fff; }
+.testimoni { background-color: #0d1b2a; color: #fff; }
+
+/* Button umum */
+.btn {
+  margin-top: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8B0000, #000);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  animation: vibrate 1.5s infinite ease-in-out;
+}
+.btn:hover { box-shadow: 0 0 15px #8B0000; }
+</style>
+</head>
+<body>
+
+<!-- PETIR -->
+<div class="lightning">
+  <div class="bolt left"></div>
+  <div class="bolt center"></div>
+  <div class="bolt right"></div>
+</div>
+
+<div class="marquee"><span>ZYYROO OFFICIAL — ZYYROO OFFICIAL — ZYYROO OFFICIAL — </span></div>
+
+<!-- PRODUK 1 MURUP ORKUT -->
+<div class="product-section">
+  <img class="product-img" src="https://files.catbox.moe/phv1dp.jpg" alt="Produk 1">
+  <div class="product-title">MURID UP ORKUT</div>
+  <div class="product-desc" id="shortDesc">* Bisa stok orkut<br>* Free tutor<br>* Jadi kang up<br>*<br>* Support android 5 - 14<br>... </div>
+  <div class="product-desc scrollable-desc" id="fullDesc">
+*DLL
+
+  </div>
+  <button class="btn" onclick="toggleDesc()">BACA SELENGKAPNYA</button>
+  <div class="product-price">Rp 3.000</div>
+  <a class="btn-buy" href="https://t.me/zyybackera" target="_blank">GAS BUY</a>
+</div>
+
+<!-- PRODUK 2 -->
+<div class="product-section">
+  <img class="product-img" src="https://files.catbox.moe/phv1dp.jpg" alt="Produk 2">
+  <div class="product-title">ZYYROO OPEN MURID BAND WA </div>
+  <div class="product-desc">• Bisa Band Ripper<br>• Bisa Band Mantan<br>• Bisa Band Guru<br>• Tutor pakai video<br>• Mt Gacor<br>• One Report<br>• Get apk c band/fc wa</div>
+  <div class="product-price">Rp 1p.000</div>
+  <a class="btn-buy" href="https://t.me/zyybackera" target="_blank">GAS BUY</a>
+</div>
+
+<!-- PRODUK 3 -->
+<div class="product-section">
+  <img class="product-img" src="https://files.catbox.moe/phv1dp.jpg" alt="Produk 3">
+  <div class="product-title">MURID WEBSITE</div>
+  <div class="product-desc">• Bisa Buat Web<br>• Bisa Open Jasa Buat Web<br>• Auto balik modal<br>• DLL</div>
+  <div class="product-price">Rp 10.000</div>
+  <a class="btn-buy" href="https://t.me/zyybackera" target="_blank">GAS BUY</a>
+</div>
+
+<!-- PRODUK 4 -->
+<div class="product-section">
+  <img class="product-img" src="https://files.catbox.moe/phv1dp.jpg" alt="Produk 4">
+  <div class="product-title">UNBAND WA ALL OPSI</div>
+  <div class="product-desc">• Bisa Kenon Lumut<br>• Bisa Kenon Spam<br>• Bisa Kenon Perma<br>• DLL</div>
+  <div class="product-price">Rp 50.000</div>
+  <a class="btn-buy" href="https://t.me/zyybackera" target="_blank">GAS BUY</a>
+</div>
+
+<!-- PAYMENT -->
+<div class="section">
+  <div class="section-title">ALL PAYMENT ZYYROO OFFICIAL</div>
+  <div class="payment-box dana">
+    <img src="https://files.catbox.moe/phv1dp.jpg" alt="DANA Logo">
+    <div class="payment-text">DANA<br>085325212902</div>
+  </div>
+  <div class="payment-box qris">
+    <img src="https://files.catbox.moe/tga8nc.jpg" alt="QRIS Logo">
+    <div class="payment-text">QRIS</div>
+  </div>
+  <a class="btn" href="https://t.me/zyybackera?text=QRIS%20BANG%20GW%20MAU%20BUY" target="_blank">KIRIM PESAN KE TELEGRAM</a>
+</div>
+
+<!-- TESTIMONI -->
+<div class="section">
+  <div class="section-title">TESTIMONI YANG BUY</div>
+  <div class="payment-box testimoni">
+    <img src="https://files.catbox.moe/phv1dp.jpg" alt="Testimoni Logo">
+    <div class="payment-text">Testimoni</div>
+  </div>
+  <a class="btn" href="https://whatsapp.com/channel/0029VbBNSME9RZAbhI2GuC1F" target="_blank">JOIN CH TESTIMONI</a>
+</div>
+
+<script>
+function toggleDesc() {
+  const shortDesc = document.getElementById('shortDesc');
+  const fullDesc = document.getElementById('fullDesc');
+  const btn = event.target;
+
+  if (fullDesc.style.display === "none" || fullDesc.style.display === "") {
+    fullDesc.style.display = "block";
+    shortDesc.style.display = "none";
+    btn.textContent = "LIAT-LIAT DOANG LU";
+  } else {
+    fullDesc.style.display = "none";
+    shortDesc.style.display = "block";
+    btn.textContent = "BACA SELENGKAPNYA";
+  }
+}
+</script>
+
+</body>
+</html>
